@@ -122,12 +122,7 @@ namespace Blockovator
         {
             public static async System.Threading.Tasks.Task<string> QrCode(string input)
             {
-                System.Net.Http.HttpClient client = new System.Net.Http.HttpClient();
-                var json = "{\"receiptId\":\"" + input + "\"}";
-                var content = new System.Net.Http.StringContent(json, System.Text.Encoding.UTF8, "application/json");
-                var response = await client.PostAsync("https://ekasa.financnasprava.sk/mdu/api/v1/opd/receipt/find", content);
-                var responseString = await response.Content.ReadAsStringAsync();
-                return responseString;
+            //here would be json fetch from api [5 lines]
             }
         }
         //here would be document class [75 lines]
