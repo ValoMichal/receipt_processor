@@ -94,29 +94,7 @@ namespace Blockovator
         }
         static async System.Threading.Tasks.Task ReceiptProcessor(System.Collections.Generic.List<String> args)
         {
-            string appPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\AppData\\Local\\Blockovator";
-            System.Globalization.CultureInfo customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
-            customCulture.NumberFormat.NumberDecimalSeparator = ".";
-            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
-            string xml = "<receipts>";
-            for (int i = 1; i < args.Count; i++)
-            {
-                System.IO.File.AppendAllText(appPath + "\\log.txt", args[i]);
-                xml += Converter.JsonToXml(await Post.QrCode(args[i]), args[i]);
-            }
-            xml += "</receipts>";
-            Console.Write(xml);
-            Config config = System.Text.Json.JsonSerializer.Deserialize<Config>(System.IO.File.ReadAllText(appPath + "\\config.json"));string outputPath = config.output;
-            string fileName = System.IO.Path.GetFileNameWithoutExtension(config.vybrany) + System.DateTime.Now.ToString("yyyyMMddhhmmss");
-            xml = xml.Replace("&", "&amp;");
-            await System.IO.File.WriteAllTextAsync(appPath + "\\tmp.xml", xml);
-            System.Xml.XPath.XPathDocument XmlFile = new System.Xml.XPath.XPathDocument(appPath + "\\tmp.xml");
-            System.Xml.Xsl.XslTransform XsltFile = new System.Xml.Xsl.XslTransform();
-            XsltFile.Load(args[0]);
-            using var FinalFile = new System.Xml.XmlTextWriter(outputPath + "\\" + fileName + ".xml", null);
-            XsltFile.Transform(XmlFile, null, FinalFile);
-            Console.Write(outputPath + "\\" + fileName + ".xml");
-            System.IO.File.AppendAllText(appPath + "\\log.txt", outputPath + "\\" + fileName + ".xml");
+        //here would be file generation, function calling and other stuff [25 lines]
         }
         public static class Post
         {
