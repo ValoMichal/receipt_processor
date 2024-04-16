@@ -1,4 +1,4 @@
-<!--   Trasnformuje zav. poukaz. z formatu financnej spravy do formatu MoneyS3 zavazky -->
+<!--   Trasnformuje pokl. poukaz. bez DPH z formatu financnej spravy do formatu MoneyS3 zavazky. -->
 
 <xsl:stylesheet version="1.0" 
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
