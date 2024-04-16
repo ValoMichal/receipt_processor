@@ -18,6 +18,7 @@ namespace Blockovator
         Config config = System.Text.Json.JsonSerializer.Deserialize<Config>(System.IO.File.ReadAllText(appPath+"\\config.json"));
         public Page1()
         {
+            //here i should have used dynamic button generation but i didnt know how to do that in C# at the time, i might redo that later
             InitializeComponent();
             System.Windows.Controls.Button button0 = new System.Windows.Controls.Button();
             System.Windows.Controls.Button button1 = new System.Windows.Controls.Button();
